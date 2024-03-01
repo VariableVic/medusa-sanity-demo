@@ -21,12 +21,8 @@ export default class SanityService {
     this.apiToken = process.env.SANITY_API_TOKEN;
     this.projectId = process.env.SANITY_PROJECT_ID;
     this.apiVersion = new Date().toISOString().split("T")[0];
-
-    console.log({ apiVersion: this.apiVersion });
-
     this.dataset =
       process.env.node_env === "production" ? "production" : "development";
-
     this.client = createClient({
       projectId: this.projectId,
       apiVersion: this.apiVersion,
